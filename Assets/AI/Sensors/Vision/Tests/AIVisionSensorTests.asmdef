@@ -1,0 +1,12 @@
+{
+    "name": "AIVisionSensorTests",
+    "references": [
+        "AI"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
