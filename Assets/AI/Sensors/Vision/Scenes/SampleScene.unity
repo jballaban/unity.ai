@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -204,7 +204,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4518301122650546, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 18.4
+      value: 23.44
       objectReference: {fileID: 0}
     - target: {fileID: 4518301122650546, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
       propertyPath: m_LocalRotation.x
@@ -226,9 +226,37 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1801446121232080, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
+      propertyPath: m_Name
+      value: Person A
+      objectReference: {fileID: 0}
+    - target: {fileID: 54824174960765052, guid: 3c669a9c9e22f0844bbac939948804ab,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 64080815797150704, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &721202877 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1801446121232080, guid: 3c669a9c9e22f0844bbac939948804ab,
+    type: 2}
+  m_PrefabInternal: {fileID: 618631116}
+--- !u!136 &721202878
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 721202877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &895320802
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +442,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4518301122650546, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801446121232080, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
+      propertyPath: m_Name
+      value: Person B
+      objectReference: {fileID: 0}
+    - target: {fileID: 54824174960765052, guid: 3c669a9c9e22f0844bbac939948804ab,
+        type: 2}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
