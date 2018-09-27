@@ -36,7 +36,10 @@ public class VisionSensorComponent : MonoBehaviour
 
     protected virtual bool IsVisible(GameObject other)
     {
-        return Physics.Raycast(transform.position, other.transform.position - transform.position, range);
+        RaycastHit hit;
+        if (!Physics.Raycast(transform.position, other.transform.position - transform.position, out hit, range))
+            return false;
+        return (hit.collider.gameObject == other);
     }
 
     public virtual void Lose(GameObject other)

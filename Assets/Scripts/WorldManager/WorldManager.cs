@@ -13,7 +13,8 @@ public class WorldManager : MonoBehaviour, IVisionObjectProvider
     public GameObject Instantiate(string key, Vector3 position, Transform parent = null)
     {
         var obj = pooler.Instantiate(PREFAB_PERSON, parent ?? root, position, rotation: null);
-        cameraControl.m_Targets.Add(obj.transform);
+        if (cameraControl)
+            cameraControl.m_Targets.Add(obj.transform);
         return obj;
     }
 

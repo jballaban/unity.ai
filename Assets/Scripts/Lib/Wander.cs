@@ -13,6 +13,11 @@ public class Wander : MonoBehaviour
     {
         this.transform.Rotate(Vector3.up, Random.Range(-10f, 10f));
         this.transform.Translate(Vector3.forward * Time.deltaTime);
-        this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, 0, 500), this.transform.position.y, Mathf.Clamp(this.transform.position.z, 0, 500));
+        if (this.transform.position.x < 0 || this.transform.position.z < 0 || this.transform.position.x > 500 || this.transform.position.z > 500)
+        {
+            this.transform.Rotate(Vector3.up, 90);
+            this.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, 0, 500), this.transform.position.y, Mathf.Clamp(this.transform.position.z, 0, 500));
+        }
+
     }
 }

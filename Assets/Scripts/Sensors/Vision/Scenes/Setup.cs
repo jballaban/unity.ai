@@ -21,7 +21,7 @@ public class Setup : MonoBehaviour
                 enemy.name = "enemy";
                 break;
             case 2:
-                for (var i = 0; i < 500; i++)
+                for (var i = 0; i < 100; i++)
                     WorldManager.instance.Instantiate(WorldManager.PREFAB_PERSON, new Vector3(Random.Range(0, 50), 1, Random.Range(0, 50)));
                 break;
         }

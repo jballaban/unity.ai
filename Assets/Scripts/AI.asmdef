@@ -1,6 +1,8 @@
 {
     "name": "AI",
-    "references": [],
+    "references": [
+        "3rdParty"
+    ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
     "excludePlatforms": [],
