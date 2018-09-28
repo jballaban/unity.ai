@@ -9,8 +9,6 @@ public class VisionSensorComponent : MonoBehaviour
     public float range = 10f;
     public IVisionObjectProvider objectProvider;
 
-    public HashSet<int> knownIDs = new HashSet<int>();
-
     void Awake()
     {
         if (objectProvider == null) objectProvider = InterfaceHelper.FindObject<IVisionObjectProvider>();
@@ -42,15 +40,9 @@ public class VisionSensorComponent : MonoBehaviour
         return (hit.collider.gameObject == other);
     }
 
-    public virtual void Lose(GameObject other)
-    {
-        knownIDs.Remove(other.GetInstanceID());
-    }
-
     public virtual void Perceive(GameObject other)
     {
         Debug.DrawLine(transform.position, other.transform.position, Color.red, refreshRate);
-        knownIDs.Add(other.GetInstanceID());
     }
 
 }

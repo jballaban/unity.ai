@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Setup : MonoBehaviour
+public class VisionSampleSceneSetup : MonoBehaviour
 {
     public int scenario = 1;
     void Start()
