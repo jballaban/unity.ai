@@ -1,20 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WorldManager : MonoBehaviour, IVisionObjectProvider
 {
     Pooler pooler = new Pooler();
-    public const string PREFAB_PERSON = "Person";
     public static WorldManager instance;
     public Transform root;
-    CameraControl cameraControl;
+    public InstantiateEvent instantiateEventHandler;
+    public class InstantiateEvent : UnityEvent<GameObject> { }
+    public List<GameObject> prefabs = new List<GameObject>();
+    Dictionary<string, GameObject> prefabLookups = new Dictionary<string, GameObject>();
 
     public GameObject Instantiate(string key, Vector3 position, Transform parent = null)
     {
-        var obj = pooler.Instantiate(PREFAB_PERSON, parent ?? root, position, rotation: null);
-        if (cameraControl)
-            cameraControl.m_Targets.Add(obj.transform);
+        var obj = pooler.Instantiate(key, parent ?? root, position, rotation: null);
+        instantiateEventHandler.Invoke(obj);
         return obj;
     }
 
@@ -33,10 +35,12 @@ public class WorldManager : MonoBehaviour, IVisionObjectProvider
 
     void Awake()
     {
-        Debug.Log("WorldManager:Awake");
-        var prefab = Resources.Load<GameObject>(PREFAB_PERSON);
-        pooler.AddPrefab(PREFAB_PERSON, prefab);
+        instantiateEventHandler = new InstantiateEvent();
+        foreach (var prefab in prefabs)
+        {
+            pooler.AddPrefab(prefab.name, prefab);
+            prefabLookups[prefab.name] = prefab;
+        }
         instance = this;
-        cameraControl = GameObject.FindObjectOfType<CameraControl>();
     }
 }

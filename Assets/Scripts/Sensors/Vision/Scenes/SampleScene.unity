@@ -544,6 +544,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 326471791}
+  prefabs:
+  - {fileID: 1801446121232080, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
 --- !u!4 &2130145760
 Transform:
   m_ObjectHideFlags: 0
@@ -565,7 +567,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2130145758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bdb655f7478952408e472a708831621, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e6f78532af880f4cbf3c7240ab3edea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenario: 2
+  scenario: 1
