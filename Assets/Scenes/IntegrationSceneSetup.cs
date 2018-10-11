@@ -25,9 +25,17 @@ public class IntegrationSceneSetup : MonoBehaviour
         {
             case 1:
                 for (var i = 0; i < 100; i++)
-                    WorldManager.instance.Instantiate(PREFAB_PERSON, new Vector3(Random.Range(0, 50), 1, Random.Range(0, 50)));
+                {
+                    var obj = WorldManager.instance.Instantiate(PREFAB_PERSON, new Vector3(Random.Range(0, 50), 1, Random.Range(0, 50)));
+                    obj.GetComponent<VisionSensorComponent>().PerceiveEventHandler.AddListener(OnPerceive);
+                }
                 break;
         }
+    }
+
+    void OnPerceive(GameObject source, GameObject other)
+    {
+        Debug.DrawLine(source.transform.position, other.transform.position, Color.red, 1f);
     }
 
     void OnWorldManagerInstantiate(GameObject obj)

@@ -10,15 +10,17 @@ public class SensoryTests
     public IEnumerator VisionTests()
     {
         var scene = new GameObject("scene");
-        scene.AddComponent<WorldManager>();
+        var worldmanager = scene.AddComponent<WorldManager>();
+        worldmanager.prefabs.Add(Resources.Load<GameObject>(VisionSampleSceneSetup.PREFAB_PERSON));
+        worldmanager.Initialize();
         scene.AddComponent<VisionSampleSceneSetup>();
         yield return new WaitForEndOfFrame(); // ensure all setup is complete
         var self = GameObject.Find("self");
         var vision = self.GetComponent<VisionSensorComponent>();
-        //   Assert.AreEqual(0, vision.knownIDs.Count);
+        Assert.AreEqual(0, vision.GetCurrentlyVisible().Count);
         var enemy = GameObject.Find("enemy");
         enemy.transform.position = self.transform.position;
         yield return new WaitForSeconds(1f);
-        //  Assert.AreEqual(1, vision.knownIDs.Count);
+        Assert.AreEqual(1, vision.GetCurrentlyVisible().Count);
     }
 }

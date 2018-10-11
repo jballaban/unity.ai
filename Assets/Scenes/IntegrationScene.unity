@@ -385,6 +385,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 133920312}
+  prefabs:
+  - {fileID: 1801446121232080, guid: 3c669a9c9e22f0844bbac939948804ab, type: 2}
 --- !u!4 &1477436049
 Transform:
   m_ObjectHideFlags: 0

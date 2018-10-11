@@ -8,10 +8,19 @@ public class WorldManager : MonoBehaviour, IVisionObjectProvider
     Pooler pooler = new Pooler();
     public static WorldManager instance;
     public Transform root;
-    public InstantiateEvent instantiateEventHandler;
+    public InstantiateEvent instantiateEventHandler = new InstantiateEvent();
     public class InstantiateEvent : UnityEvent<GameObject> { }
     public List<GameObject> prefabs = new List<GameObject>();
     Dictionary<string, GameObject> prefabLookups = new Dictionary<string, GameObject>();
+
+    public void Initialize()
+    {
+        foreach (var prefab in prefabs)
+        {
+            pooler.AddPrefab(prefab.name, prefab);
+            prefabLookups[prefab.name] = prefab;
+        }
+    }
 
     public GameObject Instantiate(string key, Vector3 position, Transform parent = null)
     {
@@ -35,12 +44,7 @@ public class WorldManager : MonoBehaviour, IVisionObjectProvider
 
     void Awake()
     {
-        instantiateEventHandler = new InstantiateEvent();
-        foreach (var prefab in prefabs)
-        {
-            pooler.AddPrefab(prefab.name, prefab);
-            prefabLookups[prefab.name] = prefab;
-        }
+        Initialize();
         instance = this;
     }
 }
